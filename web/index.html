@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Usuarios - Vista Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-users"></i> Sistema de Gestión de Usuarios</h1>
+                <div class="header-actions">
+                    <button id="refreshBtn" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                    <button id="addUserBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Nuevo Usuario
+                    </button>
+                </div>
+            </div>
+            <div class="api-status">
+                <span id="apiStatus" class="status-indicator">
+                    <i class="fas fa-circle"></i> Conectando...
+                </span>
+            </div>
+        </header>
+
+        <!-- Search and Filters -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar usuarios por nombre, email o teléfono...">
+                </div>
+                <button id="clearSearch" class="btn btn-outline">
+                    <i class="fas fa-times"></i> Limpiar
+                </button>
+            </div>
+        </section>
+
+        <!-- Users Grid -->
+        <main class="main-content">
+            <div id="loadingIndicator" class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Cargando usuarios...
+            </div>
+            
+            <div id="usersGrid" class="users-grid"></div>
+            
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <i class="fas fa-user-slash"></i>
+                <h3>No hay usuarios</h3>
+                <p>Comienza agregando tu primer usuario</p>
+                <button class="btn btn-primary" onclick="openUserModal()">
+                    <i class="fas fa-plus"></i> Agregar Usuario
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Crear/Editar Usuario -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">
+                    <i class="fas fa-user"></i> Nuevo Usuario
+                </h2>
+                <button class="close-btn" onclick="closeUserModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="userForm" class="modal-body">
+                <input type="hidden" id="userId">
+                
+                <div class="form-group">
+                    <label for="userName">
+                        <i class="fas fa-user"></i> Nombre Completo *
+                    </label>
+                    <input type="text" id="userName" required 
+                           placeholder="Ej: Juan Pérez García">
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userEmail">
+                        <i class="fas fa-envelope"></i> Correo Electrónico *
+                    </label>
+                    <input type="email" id="userEmail" required 
+                           placeholder="Ej: juan.perez@email.com">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userPhone">
+                        <i class="fas fa-phone"></i> Teléfono *
+                    </label>
+                    <input type="tel" id="userPhone" required 
+                           placeholder="Ej: 3001234567 o +573001234567">
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userAddress">
+                        <i class="fas fa-map-marker-alt"></i> Dirección
+                    </label>
+                    <textarea id="userAddress" rows="3" 
+                              placeholder="Ej: Calle 123 #45-67, Bogotá"></textarea>
+                    <div class="error-message" id="addressError"></div>
+                </div>
+            </form>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeUserModal()">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button type="submit" form="userForm" class="btn btn-primary" id="saveUserBtn">
+                    <i class="fas fa-save"></i> Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3 id="confirmTitle">
+                    <i class="fas fa-exclamation-triangle"></i> Confirmar Acción
+                </h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">¿Estás seguro de que deseas continuar?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeConfirmModal()">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button class="btn btn-danger" id="confirmAction">
+                    <i class="fas fa-check"></i> Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

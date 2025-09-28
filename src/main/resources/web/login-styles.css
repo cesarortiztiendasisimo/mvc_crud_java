@@ -1,0 +1,586 @@
+/* Login Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.logo {
+    background: rgba(255, 255, 255, 0.2);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    backdrop-filter: blur(10px);
+}
+
+.logo .material-icons {
+    font-size: 40px;
+    color: white;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.login-header h2 {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.system-selector {
+    padding: 30px;
+}
+
+.system-selector h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.system-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.system-option {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.system-option:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.system-option.selected {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.system-option .material-icons {
+    font-size: 32px;
+    margin-right: 15px;
+    color: #667eea;
+    transition: color 0.3s ease;
+}
+
+.system-option.selected .material-icons {
+    color: white;
+}
+
+.system-option span {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.system-option small {
+    display: block;
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.login-form {
+    padding: 30px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.input-group:focus-within {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group .material-icons {
+    padding: 0 15px;
+    color: #999;
+    font-size: 20px;
+}
+
+.input-group input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 15px 15px 15px 0;
+    font-size: 16px;
+    background: transparent;
+    color: #333;
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.login-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.back-btn {
+    width: 100%;
+    background: #f8f9fa;
+    color: #666;
+    border: 2px solid #e0e0e0;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #e9ecef;
+    border-color: #ccc;
+}
+
+.demo-credentials {
+    background: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.demo-credentials h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.credential-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 13px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.credential-item:last-child {
+    border-bottom: none;
+}
+
+.credential-item strong {
+    color: #333;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+    
+    .login-header {
+        padding: 30px 20px;
+    }
+    
+    .system-selector, .login-form {
+        padding: 20px;
+    }
+    
+    .system-option {
+        padding: 15px;
+    }
+    
+    .system-option .material-icons {
+        font-size: 28px;
+        margin-right: 12px;
+    }
+}
+
+/* Error states */
+.input-group.error {
+    border-color: #e74c3c;
+    background: #fdf2f2;
+}
+
+.input-group.error .material-icons {
+    color: #e74c3c;
+}
+
+.error-message {
+    background: #fdf2f2;
+    color: #e74c3c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Download Modal Styles */
+.download-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.download-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.download-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.download-modal.show .download-content {
+    transform: scale(1);
+}
+
+.download-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.download-header i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.download-header h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.download-header p {
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+.download-options {
+    padding: 30px;
+}
+
+.download-option {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.download-option:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+    transform: translateX(5px);
+}
+
+.option-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.option-details {
+    flex: 1;
+}
+
+.option-details h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.option-details p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.option-details small {
+    color: #999;
+    font-size: 12px;
+}
+
+.download-option .arrow {
+    color: #ccc;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.download-option:hover .arrow {
+    color: #667eea;
+}
+
+.download-instructions {
+    padding: 0 30px 20px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.instruction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 14px;
+}
+
+.instruction i {
+    background: #f0f7ff;
+    color: #667eea;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+.download-actions {
+    padding: 20px 30px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.web-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    flex: 1;
+    justify-content: center;
+}
+
+.web-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive Design for Download Modal */
+@media (max-width: 576px) {
+    .download-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .download-header {
+        padding: 20px;
+    }
+    
+    .download-header h3 {
+        font-size: 20px;
+    }
+    
+    .download-options {
+        padding: 20px;
+    }
+    
+    .download-option {
+        padding: 16px;
+    }
+    
+    .option-details h4 {
+        font-size: 16px;
+    }
+    
+    .download-actions {
+        flex-direction: column;
+    }
+    
+    .download-actions button {
+        width: 100%;
+    }
+}

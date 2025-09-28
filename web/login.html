@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Empleados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="material-icons">business</i>
+                </div>
+                <h1>Sistema de Gestión</h1>
+                <h2>Supermercado MVC</h2>
+            </div>
+
+            <div class="system-selector">
+                <h3>Selecciona tu sistema</h3>
+                <div class="system-options">
+                    <div class="system-option" data-system="empleados-web">
+                        <i class="material-icons">people</i>
+                        <span>Sistema Web de Empleados</span>
+                        <small>Gestión de empleados en línea</small>
+                    </div>
+                    <div class="system-option" data-system="empleados-desktop">
+                        <i class="material-icons">desktop_windows</i>
+                        <span>Sistema Desktop de Empleados</span>
+                        <small>Aplicación de escritorio</small>
+                    </div>
+                    <div class="system-option" data-system="usuarios-desktop">
+                        <i class="material-icons">account_circle</i>
+                        <span>Sistema Desktop de Usuarios</span>
+                        <small>Gestión de usuarios</small>
+                    </div>
+                </div>
+            </div>
+
+            <form id="loginForm" class="login-form" style="display: none;">
+                <div class="input-group">
+                    <i class="material-icons">email</i>
+                    <input type="email" id="username" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="material-icons">person</i>
+                    <input type="text" id="password" name="nombre" placeholder="Nombre Completo" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Iniciar Sesión</span>
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+                <button type="button" class="back-btn" onclick="showSystemSelector()">
+                    <i class="material-icons">arrow_back</i>
+                    <span>Volver</span>
+                </button>
+            </form>
+
+            <div class="demo-credentials" id="demoCredentials" style="display: none;">
+                <h4>Usuarios de prueba disponibles:</h4>
+                <div class="credential-item">
+                    <strong>Email:</strong> brccesar@gmail.com
+                    <strong>Nombre:</strong> Cesar Ortiz
+                </div>
+                <div class="credential-item">
+                    <strong>Email:</strong> maria.garcia@email.com
+                    <strong>Nombre:</strong> María García
+                </div>
+                <div class="credential-item">
+                    <strong>Email:</strong> carlos.lopez@email.com
+                    <strong>Nombre:</strong> Carlos López
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Iniciando sesión...</p>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+</html>
